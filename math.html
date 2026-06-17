@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Math Exam Survival Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-1: #ef4444; /* Red for panic */
+            --accent-2: #3b82f6; /* Blue for tears */
+            --accent-3: #10b981; /* Green for hope */
+            --accent-4: #f59e0b; /* Yellow for caffeine */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Floating Math Background */
+        #math-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-symbol {
+            position: absolute;
+            bottom: -50px;
+            color: rgba(255, 255, 255, 0.05);
+            font-weight: bold;
+            font-size: clamp(2rem, 5vw, 4rem);
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Layout & Sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h1, h2 {
+            font-family: 'Permanent Marker', cursive;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        h1 { font-size: clamp(3rem, 8vw, 6rem); color: var(--accent-3); text-shadow: 4px 4px 0px rgba(0,0,0,0.5); }
+        h2 { font-size: clamp(2rem, 5vw, 4rem); }
+        p { font-size: clamp(1.2rem, 2vw, 1.5rem); max-width: 800px; line-height: 1.6; margin-bottom: 1.5rem; }
+
+        .highlight { color: var(--accent-4); font-weight: 900; }
+        
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(100px) scale(0.9);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Custom Animations */
+        .shake.active {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both infinite;
+            color: var(--accent-1);
+        }
+
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        .spin.active {
+            display: inline-block;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* Scroll Indicator */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            font-size: 2rem;
+            color: var(--accent-3);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-30px) translateX(-50%); }
+            60% { transform: translateY(-15px) translateX(-50%); }
+        }
+
+        /* Fun Elements */
+        .coffee-meter {
+            width: 100%;
+            max-width: 500px;
+            height: 30px;
+            background: #333;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .coffee-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent-4);
+            transition: width 2s ease-in-out;
+        }
+
+        .reveal.active .coffee-fill {
+            width: 150%; /* Intentionally overflowing because TOO MUCH COFFEE */
+            background: repeating-linear-gradient(45deg, var(--accent-1), var(--accent-1) 10px, var(--accent-4) 10px, var(--accent-4) 20px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="math-bg"></div>
+
+    <section id="intro">
+        <div class="reveal">
+            <h1>The Math Survivor</h1>
+            <p>A tragicomedy of numbers, procrastination, and extreme caffeine intake.</p>
+            <p style="font-size: 1rem; opacity: 0.7;">(Scroll down if you dare...)</p>
+        </div>
+        <div class="scroll-down">↓</div>
+    </section>
+
+    <section>
+        <div class="reveal">
+            <h2 style="color: var(--accent-2);">Chapter 1: The Untouched Artifact</h2>
+            <p>For exactly 364 days, my Math book served a noble purpose.</p>
+            <p>It was a <strong>fantastic mousepad</strong>. It leveled my wobbly desk perfectly. Once, I even used it to kill a spider.</p>
+            <p>Did I open it? <span class="highlight">Absolutely not.</span> I believed in learning through osmosis. I thought if I slept next to the book, the equations would naturally diffuse into my brain.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="reveal">
+            <h2 style="color: var(--accent-4);">Chapter 2: The Night Before (9:00 PM)</h2>
+            <p>The realization hit me like a truck full of geometry boxes.</p>
+            <p>"I have a Math paper tomorrow."</p>
+            <p>I finally opened the book. The table of contents looked like ancient Egyptian hieroglyphics. What is a "Calculus"? Is "Trigonometry" a type of dinosaur?</p>
+            
+            <h3 style="margin-top: 20px;">Caffeine Level in Bloodstream:</h3>
+            <div class="coffee-meter">
+                <div class="coffee-fill"></div>
+            </div>
+            <p class="shake" style="font-size: 1rem; margin-top: 10px;">*Heart palpitations intensify*</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="reveal shake">
+            <h2>Chapter 3: The 3:00 AM Delusions</h2>
+            <p>At 3 AM, the panic faded and was replaced by pure, unadulterated delusion.</p>
+            <p>I convinced myself I didn't need to learn formulas. "I will simply derive them all from scratch in the exam hall," I whispered to my empty coffee mug.</p>
+            <p>I looked at the integration symbol (<span class="spin">∫</span>) and thought it was an elegant musical note. I was losing my mind.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="reveal">
+            <h2 style="color: var(--accent-1);">Chapter 4: The Battlefield (9:00 AM)</h2>
+            <p>The invigilator handed out the question paper. I took a deep breath. "I got this."</p>
+            <p>I looked at Question 1: <br><strong style="font-size: 2rem;">"Find X."</strong></p>
+            <p>Me: <em>"Bro, he left me. Let him go. Move on."</em></p>
+            <p style="margin-top: 20px;">Question 2: <br><strong>"If John has 50 watermelons and throws 12 at a train moving at 60km/h..."</strong></p>
+            <p>Me: <em>"John needs a therapist, not a mathematician."</em></p>
+        </div>
+    </section>
+
+    <section>
+        <div class="reveal">
+            <h2 style="color: var(--accent-3);">Epilogue: The Walk of Shame</h2>
+            <p>I left the exam hall after an hour. Not because I was finished, but because my brain had successfully uninstalled "Math.exe" to free up storage space.</p>
+            <p>When my friends asked "How was it?", I just smiled the smile of a broken person and said,</p>
+            <h1>"I wrote my name perfectly."</h1>
+            <p style="margin-top: 50px; font-size: 1rem;">RIP My GPA (August - May) 🪦</p>
+        </div>
+    </section>
+
+    <script>
+        // 1. Generate Floating Math Symbols Background
+        const symbols = ['∫', 'π', '∑', '∞', '√', '≈', '≠', 'x²', 'y=mx+c', 'θ', '÷', '±', 'sin(θ)', 'cos(x)', 'lim'];
+        const bg = document.getElementById('math-bg');
+        
+        // Create 50 floating elements
+        for(let i = 0; i < 50; i++) {
+            let el = document.createElement('div');
+            el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            el.classList.add('floating-symbol');
+            
+            // Randomize position, size, and animation timing
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+            el.style.animationDuration = (Math.random() * 15 + 10) + 's'; // Between 10 and 25 seconds
+            el.style.animationDelay = Math.random() * 10 + 's';
+            
+            bg.appendChild(el);
+        }
+
+        // 2. Intersection Observer for Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3 // Trigger when 30% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Find any shaking or spinning children and activate them too
+                    const shakes = entry.target.querySelectorAll('.shake, .spin');
+                    shakes.forEach(el => el.classList.add('active'));
+                }
+            });
+        }, observerOptions);
+
+        // Target all elements with the 'reveal' class
+        document.querySelectorAll('.reveal').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
